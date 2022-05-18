@@ -179,6 +179,6 @@ laravel new trytrabby --git --branch="main" --github="--private"
 laravel new laravel-stisla-jetstream-admin-dashboard-pro-kits --jet --stack="livewire" --teams --force --git --branch="master" --github="--public" 
 
 
-laravel new andamanroom --jet --stack="livewire" --teams --force --git --branch="master" --github="--private"
+laravel new andamanroom --jet --stack="livewire" --teams --git --branch="master" --github="--private"
 
 ```

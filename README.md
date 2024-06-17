@@ -7,7 +7,7 @@ sudo dpkg -i ./*.deb;
 ```
 ### 
 ```shell
-sudo dpkg -i ./*.deb;
+sudo apt -i ./*.deb;
 sudo apt clean;
 sudo apt update;
 sudo apt upgrade;
@@ -19,8 +19,6 @@ sudo apt dist-upgrade -Vy;
 sudo apt full-upgrade -y;
 sudo apt autoremove;
 sudo apt autoclean;
-sudo add-apt-repository ppa:nginx/stable;
-sudo apt-get update;
 sudo add-apt-repository ppa:ondrej/php;
 sudo apt-get update;
 sudo add-apt-repository -y ppa:teejee2008/ppa;
@@ -50,7 +48,7 @@ sudo apt install wine winetricks;
 sudo apt install steam;
 sudo apt-get install openjdk-11-jdk;
 sudo apt install rar unrar p7zip-full p7zip-rar;
-sudo apt install python3-pip python;
+sudo apt install python3-pip python3;
 sudo ufw enable;
 sudo apt-get install gufw;
 sudo apt-get install synaptic;
@@ -61,7 +59,6 @@ sudo apt-get install flatpak;
 sudo apt-get install gnome-software-plugin-flatpak;
 sudo add-apt-repository ppa:gerardpuig/ppa;
 sudo apt update;
-sudo apt-get install Ubuntu-cleaner;
 sudo apt install nginx;
 sudo apt install -y nginx;
 sudo ufw app list;
@@ -69,22 +66,22 @@ sudo ufw allow 'Nginx HTTP';
 sudo ufw status;
 sudo systemctl enable nginx;
 sudo systemctl start nginx;
-sudo apt install -y php7.4-fpm php7.4-cli php7.4-gd php7.4-mysql php7.4-pgsql php7.4-imap php7.4-mbstring php7.4-xml php7.4-curl php7.4-bcmath php7.4-sqlite3 php7.4-zip php-memcached php7.4-common php-xdebug php7.4-{cli,json,imap,bcmath,bz2,intl,gd,mbstring,mysql,zip};
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');";
-php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;";
-php composer-setup.php;
-php -r "unlink('composer-setup.php');";
+sudo apt install -y php8.3-fpm php8.3-cli php8.3-gd php8.3-mysql php8.3-pgsql php8.3-imap php8.3-mbstring php8.3-xml php8.3-curl php8.3-bcmath php8.3-sqlite3 php8.3-zip php-memcached php8.3-common php-xdebug php8.3-{cli,imap,bcmath,bz2,intl,gd,mbstring,mysql,zip};
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer;
 composer global require "laravel/installer";
 sudo nano ~/.bashrc;
 export PATH="~/.config/composer/vendor/bin:$PATH"
 source ~/.bashrc;
-sudo service php7.4-fpm restart;
+sudo service php8.3-fpm restart;
 sudo apt install mysql-server -y;
 sudo mysql_secure_installation;
 sudo mysql -u root -p;
 USE mysql;
-CREATE DATABASE trytrabby;
+CREATE DATABASE laravel;
 CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'newuser'@'localhost';
 FLUSH PRIVILEGES;
@@ -105,36 +102,36 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null;
 sudo apt update;
 sudo apt install gh;
-curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh;
+curl -sL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh;
 sudo nano nodesource_setup.sh;
 sudo bash nodesource_setup.sh;
 sudo apt-get install -y nodejs;
 sudo apt autoremove;
 sudo apt-get install gcc g++ make;
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null;
-echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list;
 sudo apt-get update && sudo apt-get install yarn;
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -;
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list;
 sudo apt-get update;
 mkdir ~/.npm-global;
 npm config set prefix '~/.npm-global';
 sudo nano ~/.profile;
 export PATH=~/.npm-global/bin:$PATH
 source ~/.profile;
+npm install -g pnpm;
+curl -fsSL https://bun.sh/install | bash -s "bun-v1.1.6";
+sudo nano ~/.bashrc;
+export PATH=~/.bun/bin:$PATH
+source ~/.bashrc;
 npm install -g jshint;
 npm install -g expo-cli;
-npm install -g @vue/cli;
 npm install -g @vue/cli @vue/cli-service-global;
-yarn global add @vue/cli @vue/cli-service-global;
 sudo ufw reload;
 #ssh mahavishnu@mahavishnu;
 #ssh-keygen;
+#/home/mahavishnu/.ssh/id_rsa.pub;
 sudo apt update;
 sudo apt install nginx -y;
 sudo apt install software-properties-common -y;
 sudo add-apt-repository ppa:ondrej/php;
-sudo apt install php7.4-fpm php7.4-common php7.4-dom php7.4-intl php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring php7.4-soap php7.4-zip php7.4-bcmath -y;
+sudo apt install php8.3-fpm php8.3-common php8.3-dom php8.3-intl php8.3-mysql php8.3-xml php8.3-xmlrpc php8.3-curl php8.3-gd php8.3-imagick php8.3-cli php8.3-dev php8.3-imap php8.3-mbstring php8.3-soap php8.3-zip php8.3-bcmath -y;
 wget -c https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-english.tar.gz;
 tar xzvf phpMyAdmin-5.0.2-english.tar.gz;
 sudo mv phpMyAdmin-5.0.2-english /usr/share/phpmyadmin;
